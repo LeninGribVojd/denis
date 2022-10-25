@@ -1,0 +1,838 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Начало"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9.5\n",
+      "10 2.5\n",
+      "25\n",
+      "2.5\n",
+      "2\n",
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "a=2\n",
+    "b=int(5)\n",
+    "c=float(2.5)\n",
+    "print(a+b+c)\n",
+    "print(a*b, (c-a) * 5)\n",
+    "print(b**2)  # две звёздочки означают возведение в степень\n",
+    "print(b/a)  # один слэш — это деление с ответом-дробью\n",
+    "print(b//a)  # два слэша считают частное от деления нацело\n",
+    "                # это как операция div в других языках\n",
+    "print(b%a)  # процент считает остаток от деления нацело\n",
+    "               # это как операция mod в других языках"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Как вас зовут?\n",
+      "Здравствуйте, paul!\n",
+      "Здравствуйте, paul!\n"
+     ]
+    }
+   ],
+   "source": [
+    "question='Как вас зовут?'\n",
+    "print(question)\n",
+    "name = input()  # считываем строку и кладём её в переменную name\n",
+    "print('Здравствуйте, ' + name + '!')\n",
+    "print(f'Здравствуйте, {name}!') # форматированный вывод"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "23\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = input()\n",
+    "b = input()\n",
+    "s = a + b\n",
+    "print(s)  #не сумма\n",
+    "\n",
+    "a = int(a)\n",
+    "b = int(b)\n",
+    "s = a + b\n",
+    "print(s)  #сумма"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 59,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "abcabcabc\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('abc' * 3) # можно и так"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ab a b\n"
+     ]
+    }
+   ],
+   "source": [
+    "a='a'\n",
+    "b='b'\n",
+    "print(a+b,end=' ' ) # символ переноса строки заменен на пробел\n",
+    "print (a,b)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Генераторы\n",
+    "#### Генераторы- это конструкции для создания данных по условиям\n",
+    "\n",
+    "Общий вид: (переменная  или выражение for переменная in диапазон if условие)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{0, 64, 4, 36, 16}\n"
+     ]
+    }
+   ],
+   "source": [
+    "print({x**2 for x in range(10) if x%2==0})"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Печатает числа от 1 до 100. Но для чисел, кратных трем, выведет «Fizz» вместо числа, а для кратных пяти выведет «Buzz». (если кратно и трем, и пяти, то выводится, соответственно, FizzBuzz)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'FizzBuzz', 16, 17, 'Fizz', 19]\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(['FizzBuzz' if i%3==0 and i%5==0 else 'Fizz' if i%3==0 else 'Buzz' if i%5==0 else i  for i in range(1,20)])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Срезы\n",
+    "\n",
+    "```\n",
+    "item[START:STOP:STEP]\n",
+    "```\n",
+    "\n",
+    "берёт срез от номера START, до STOP (не включая его), с шагом STEP. \n",
+    "\n",
+    "По умолчанию START = 0, STOP = длине объекта, STEP = 1. Соответственно, какие-нибудь параметры могут быть опущены"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "level\n"
+     ]
+    }
+   ],
+   "source": [
+    "text = 'level'\n",
+    "print(text[::-1])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 3, 8, 7]\n",
+      "[3, 8, 7]\n",
+      "[1, 3, 8]\n",
+      "[1, 8]\n",
+      "[7, 8, 3, 1]\n",
+      "[1, 3]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = [1, 3, 8, 7]\n",
+    "print(a[:])   # выборка\n",
+    "print(a[1:])\n",
+    "print(a[:3])\n",
+    "print(a[::2])\n",
+    "print(a[::-1])\n",
+    "print(a[:-2])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 0, 0, 0, 7]\n",
+      "[1, 7]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a[1:3] = [0, 0, 0] # запись\n",
+    "print(a)\n",
+    "\n",
+    "del a[1:4]\n",
+    "print(a)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Списки"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[]\n",
+      "['a', 'b', 'c', '1', '2', '3']\n",
+      "[0, 1, 2, 3, 4]\n",
+      "['Hello Karl', 'Hello Abhay', 'Hello Zen']\n",
+      "[1, 2, 3]\n",
+      "длина списка [1, 2, 3] = 3\n",
+      "количество 0=1, позиция 1=0,\n",
+      " максимум и минимум = 3 0\n"
+     ]
+    }
+   ],
+   "source": [
+    "spisok=[] # пустой список\n",
+    "print(spisok)\n",
+    "\n",
+    "stroka='abc123' # создание списка из текстовой строки\n",
+    "spisok=list(stroka)\n",
+    "print(spisok)\n",
+    "\n",
+    "spisok=[int(x) for x in range(5)]  # использование генератора\n",
+    "print(spisok)\n",
+    "\n",
+    "spisok = [(\"Hello \" + i) for i in ['Karl','Abhay','Zen']]\n",
+    "print(spisok)\n",
+    "\n",
+    "spisok=list(map(int,['1','2','3'])) # изменение типа данных в списке\n",
+    "print(spisok)\n",
+    "\n",
+    "print(f'длина списка {spisok} = {len(spisok)}')  # методы рабоы со списком\n",
+    "spisok.append(0)                                 # добавим число 0 в конец списка\n",
+    "num=spisok.count(0)\n",
+    "ind=spisok.index(1)\n",
+    "maxi,mini=max(spisok),min(spisok)\n",
+    "print(f'количество 0={num}, позиция 1={ind},\\n максимум и минимум = {maxi} {mini}') # используется разделить \\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[[1, 10], [2, 20], [3, 30], [4, 40]]\n",
+      "1 10\n"
+     ]
+    }
+   ],
+   "source": [
+    "ab=[[1,10],[2,20],[3,30],[4,40]]# список в списке\n",
+    "print(ab)\n",
+    "print(ab[0][0],  ab[0][1])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Цикл for"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "range(0, 10)\n",
+      "0 1 2 3 4 5 6 7 8 9 \n",
+      "1 3 5 7 9 a b c d e f g \n",
+      "0 1 2 3 4 "
+     ]
+    }
+   ],
+   "source": [
+    "spisok=range(10)\n",
+    "print(spisok)\n",
+    "\n",
+    "spisok=[x for x in range(10)]\n",
+    "for i in spisok:\n",
+    "    print (i ,end=' ')\n",
+    "print()\n",
+    "\n",
+    "for i in range(1,10,2): # цикл с шагом +2\n",
+    "    print (i ,end=' ')\n",
+    "\n",
+    "spisok='abcdefg'\n",
+    "for i in spisok:\n",
+    "    print (i ,end=' ')\n",
+    "print()\n",
+    "\n",
+    "a=[1,2,3,4,5]\n",
+    "for i in range(len(a)):  # len = длина \n",
+    "    print(i, end=' ')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Условие if"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "'<' Меньше — условие верно, если первый операнд меньше второго.\n",
+    "\n",
+    "'>' Больше — условие верно, если первый операнд больше второго.\n",
+    "\n",
+    "'<=' Меньше или равно.\n",
+    "\n",
+    "'>=' Больше или равно.\n",
+    "\n",
+    "'==' Равенство. Условие верно, если два операнда равны.\n",
+    "\n",
+    "'!=' Неравенство. Условие верно, если два операнда неравны."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Первая четверть\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = int(2)\n",
+    "y = int(3)\n",
+    "if x > 0 and y > 0:\n",
+    "    print(\"Первая четверть\")\n",
+    "elif x > 0 and y < 0:\n",
+    "    print(\"Четвертая четверть\")\n",
+    "elif y > 0:\n",
+    "    print(\"Вторая четверть\")\n",
+    "else:\n",
+    "    print(\"Третья четверть\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Лямбда-функция"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Лямбда-функция - это небольшая анонимная функция.\n",
+    "\n",
+    "Лямбда-функция может принимать любое количество аргументов, но может иметь только одно __выражение."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "100"
+      ]
+     },
+     "execution_count": 45,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "sqr = lambda x: x * x  ##Функция, возвращающая квадрат любого числа\n",
+    "sqr(10)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Полезные однострочные конструкции"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a=5 b=4\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = 4 \n",
+    "b = 5\n",
+    "a,b = b,a\n",
+    "print(f\"a={a} b={b}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "4 5.5 Hello\n"
+     ]
+    }
+   ],
+   "source": [
+    "a,b,c = 4, 5.5, 'Hello'\n",
+    "print(a,b,c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 [2, 3, 4] 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "a,*b,c = [1,2,3,4,5]\n",
+    "print(a,b,c)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "12\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Сумма четных чисел в списке\n",
+    "a = [1,2,3,4,5,6]\n",
+    "s = sum([num for num in a if num%2 == 0]) \n",
+    "print(s)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[1, 3, 5]\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Удаляем все четные числа\n",
+    "a = [1,2,3,4,5] \n",
+    "del a[1::2]\n",
+    "print(a)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0 [1, 2, 3, 4, 5, 6]\n"
+     ]
+    }
+   ],
+   "source": [
+    "a, *lis = list(map(int, \"0 1 2 3 4 5 6\".split()))\n",
+    "print(a, lis)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 47,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "present\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Проверить наличие числа в списке\n",
+    "num = 5\n",
+    "if num in [1,2,3,4,5]:  \n",
+    "     print('present')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 48,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "?\n",
+      "??\n",
+      "???\n",
+      "????\n",
+      "?????\n"
+     ]
+    }
+   ],
+   "source": [
+    "# Вывод паттернов\n",
+    "n = 5  \n",
+    "print('\\n'.join('?' * i for i in range(1, n + 1)))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 50,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "720"
+      ]
+     },
+     "execution_count": 50,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Нахождение факториала\n",
+    "import math  \n",
+    "n = 6\n",
+    "math.factorial(n)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0, 1, 1, 2, 3, 5, 8]"
+      ]
+     },
+     "execution_count": 52,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Ряд Фибоначчи\n",
+    "fibo = [0,1]  \n",
+    "[fibo.append(fibo[-2]+fibo[-1]) for i in range(5)]\n",
+    "fibo"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]"
+      ]
+     },
+     "execution_count": 58,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Простое число\n",
+    "list(filter(lambda x:all(x % y != 0 for y in range(2, x)), range(2, 50))) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 6, 8]"
+      ]
+     },
+     "execution_count": 61,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# вызов функции, увеличить числа в списке в 2 раза\n",
+    "def scale(lst, x): \n",
+    "    return [i*x for i in lst] \n",
+    "\n",
+    "scale([2,3,4], 2) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 63,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[[1, 4, 7], [2, 5, 8], [3, 6, 9]]"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Транспонировать матрицу\n",
+    "a=[[1,2,3],\n",
+    "   [4,5,6],\n",
+    "   [7,8,9]]   \n",
+    "transpose = [list(i) for i in zip(*a)] \n",
+    "transpose"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 69,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Java is a programming language. Java is Java'"
+      ]
+     },
+     "execution_count": 69,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# замена части текста\n",
+    "\"python is a programming language. python is python\".replace(\"python\",'Java') "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 78,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Tail'"
+      ]
+     },
+     "execution_count": 78,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Симуляция подбрасывания монеты\n",
+    "import random; random.choice(['Head',\"Tail\"]) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 79,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[('a', 1), ('a', 2), ('a', 3), ('b', 1), ('b', 2), ('b', 3)]"
+      ]
+     },
+     "execution_count": 79,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Генерация групп\n",
+    "groups = [(a, b) for a in ['a', 'b'] for b in [1, 2, 3]] \n",
+    "groups"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.10.7 64-bit (microsoft store)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.7"
+  },
+  "orig_nbformat": 4,
+  "vscode": {
+   "interpreter": {
+    "hash": "51020862dd9a44a9d82d2a5ca9a4c781daef83a9525ea60b677cb40b75b31122"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
