@@ -1,4 +1,13 @@
 # denis ostakhov
+
+
+A[Hard] -->|Text| B(Round)
+B --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+
+
+
 1. $$E=mc^2$$- эквивалентность массы и энергии
 
 2. $$-\frac{h^2}{2m}ΔΨ+UΨ=ih\frac{δΨ}{δt}$$- уравнение Шредингера
